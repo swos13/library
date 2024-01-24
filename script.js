@@ -4,11 +4,13 @@ const authorInput = document.querySelector("#author-input");
 const pagesInput = document.querySelector("#pages-input");
 const libraryContainer = document.querySelector(".library-container");
 const library = [];
+let id = 0;
 
 function Book(title, author, pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.id = id++;
 }
 
 function addBookToDOM(book){
@@ -34,6 +36,7 @@ function addBookToDOM(book){
     pagesLabel.textContent = "Pages: ";
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
+    deleteButton.id = book.id;
 
     bookContainer.appendChild(titleLabel);
     bookContainer.appendChild(title);
@@ -42,6 +45,17 @@ function addBookToDOM(book){
     bookContainer.appendChild(pagesLabel);
     bookContainer.appendChild(pages);
     bookContainer.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', () => {
+        bookContainer.remove();
+        let id;
+        for(let i=0; i<library.length; i++)
+            if(deleteButton.id == library[i].id){
+                id = i;
+                break;
+            }
+        library.splice(id,1);
+    })
 
     libraryContainer.appendChild(bookContainer);
 }
