@@ -18,19 +18,28 @@ function addBookToDOM(book){
     let title = document.createElement("div");
     let author = document.createElement("div");
     let pages = document.createElement("div");
+    let titleLabel = document.createElement("label");
+    let authorLabel = document.createElement("label");
+    let pagesLabel = document.createElement("label");
     let deleteButton = document.createElement("button");
 
     title.textContent = book.title;
     title.classList.add("title");
+    titleLabel.textContent = "Title: ";
     author.textContent = book.author;
     author.classList.add("author");
+    authorLabel.textContent = "Author: ";
     pages.textContent = book.pages;
     pages.classList.add("pages");
+    pagesLabel.textContent = "Pages: ";
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
 
+    bookContainer.appendChild(titleLabel);
     bookContainer.appendChild(title);
+    bookContainer.appendChild(authorLabel);
     bookContainer.appendChild(author);
+    bookContainer.appendChild(pagesLabel);
     bookContainer.appendChild(pages);
     bookContainer.appendChild(deleteButton);
 
