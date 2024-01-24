@@ -1,3 +1,4 @@
+const addButton = document.querySelector(".add");
 const library = [];
 
 function Book(name, author, pages){
@@ -9,3 +10,7 @@ function Book(name, author, pages){
 function addBookToLibrary(book){
     library.push(book);
 }
+
+addButton.addEventListener("click", () => {
+    let form = document.createElement("form");
+})
