@@ -3,6 +3,9 @@ const titleInput = document.querySelector("#title-input");
 const authorInput = document.querySelector("#author-input");
 const pagesInput = document.querySelector("#pages-input");
 const libraryContainer = document.querySelector(".library-container");
+const titleError = document.querySelector("#title-input + .error");
+const authorError = document.querySelector("#author-input + .error");
+const pagesError = document.querySelector("#pages-input + .error");
 const library = [];
 let id = 0;
 
@@ -77,10 +80,37 @@ function addBookToLibrary(title, author, pages){
     addBookToDOM(book);
 }
 
+function validateForm(title, author, pages){
+    let isValid = true;
+    if(title.trim() == ""){
+        isValid = false;
+        titleError.style.visibility = "visible";
+    }
+    if(author.trim() == ""){
+        isValid = false;
+        authorError.style.visibility = "visible";
+    }
+    if(parseInt(pages) <= 0 || pages == ""){
+        isValid = false;
+        pagesError.style.visibility = "visible";
+    }
+    return isValid;
+}
+
+titleInput.addEventListener('change', () => {
+    titleError.style.visibility = "hidden";
+})
+
+authorInput.addEventListener('change', () => {
+    authorError.style.visibility = "hidden";
+})
+
+pagesInput.addEventListener('change', () => {
+    pagesError.style.visibility = "hidden";
+})
+
 addButton.addEventListener("click", (event) => {
     event.preventDefault();
-    let title = titleInput.value;
-    let author = authorInput.value;
-    let pages = pagesInput.value;
-    addBookToLibrary(title, author, pages);
+    if(validateForm(titleInput.value, authorInput.value, pagesInput.value))
+        addBookToLibrary(titleInput.value, authorInput.value, pagesInput.value);
 })

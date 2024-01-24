@@ -14,16 +14,19 @@
     <form action="index.html" method="get">
         <h2>Add new book:</h2>
         <div class="row-form">
-            <label for="title-input">Title</label>
+            <label for="title-input" class="label-input">Title</label>
             <input type="text" id="title-input">
+            <label class="error">Title is required!</label>
         </div>
         <div class="row-form">
-            <label for="author-input">Author</label>
+            <label for="author-input" class="label-input">Author</label>
             <input type="text" id="author-input">
+            <label class="error">Author is required!</label>
         </div>
         <div class="row-form">
-            <label for="pages-input">Amount of pages</label>
+            <label for="pages-input" class="label-input">Amount of pages</label>
             <input type="number" id="pages-input">
+            <label class="error">Positive number is required!</label>
         </div>
         <button class="add">Add book</button>
     </form>

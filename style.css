@@ -61,7 +61,7 @@ form > h2 {
     flex-direction: column;
 }
 
-.row-form > label {
+.row-form > .label-input {
     margin-bottom: 8px;
     text-align: center;
 }
@@ -70,6 +70,15 @@ form > h2 {
     padding: 0.5rem;
     border: 2px solid rgb(160, 160, 160);
     border-radius: 8px;
+}
+
+.row-form > .error {
+    visibility: hidden;
+    font: 1rem Roboto-Medium, Helvetica, sans-serif;
+    height: 1rem;
+    margin-top: 4px;
+    color: red;
+    text-align: center;
 }
 
 .add {
