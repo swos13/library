@@ -34,6 +34,7 @@ body {
 }
 
 .header {
+    font: 1.5rem Roboto-Bold, Helvetica, sans-serif;
     color: white;
     background-color: black;
     grid-area: header;
@@ -43,11 +44,16 @@ body {
 }
 
 form {
+    font: 1.2rem Roboto-Medium, Helvetica, sans-serif;
     padding: 24px;
     grid-area: form;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+form > h2 {
+    text-align: center;
 }
 
 .row-form {
@@ -67,6 +73,7 @@ form {
 }
 
 .add {
+    font: 1rem Roboto-Bold, Helvetica, sans-serif;
     background-color: var(--bg-color);
     padding: 1rem;
     margin: 1rem;
