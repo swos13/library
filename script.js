@@ -10,6 +10,7 @@ function Book(title, author, pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = false;
     this.id = id++;
 }
 
@@ -23,6 +24,8 @@ function addBookToDOM(book){
     let titleLabel = document.createElement("label");
     let authorLabel = document.createElement("label");
     let pagesLabel = document.createElement("label");
+    let readLabel = document.createElement("label");
+    let readCheckbox = document.createElement("input");
     let deleteButton = document.createElement("button");
 
     title.textContent = book.title;
@@ -34,6 +37,8 @@ function addBookToDOM(book){
     pages.textContent = book.pages;
     pages.classList.add("pages");
     pagesLabel.textContent = "Pages: ";
+    readLabel.textContent = "Read: ";
+    readCheckbox.type = "checkbox";
     deleteButton.textContent = "Delete";
     deleteButton.classList.add("delete");
     deleteButton.id = book.id;
@@ -44,7 +49,13 @@ function addBookToDOM(book){
     bookContainer.appendChild(author);
     bookContainer.appendChild(pagesLabel);
     bookContainer.appendChild(pages);
+    readLabel.appendChild(readCheckbox);
+    bookContainer.appendChild(readLabel);
     bookContainer.appendChild(deleteButton);
+
+    readCheckbox.addEventListener('change', () => {
+        book.read = readCheckbox.checked;
+    })
 
     deleteButton.addEventListener('click', () => {
         bookContainer.remove();
