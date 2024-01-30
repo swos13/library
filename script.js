@@ -7,14 +7,20 @@ const titleError = document.querySelector("#title-input + .error");
 const authorError = document.querySelector("#author-input + .error");
 const pagesError = document.querySelector("#pages-input + .error");
 const library = [];
-let id = 0;
 
-function Book(title, author, pages){
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = false;
-    this.id = id++;
+class Book {
+    static ids = 0;
+    constructor(title, author, pages){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = false;
+        this.id = this.getNewID();
+    }
+
+    getNewID(){
+        return Book.ids++;
+    }
 }
 
 function addBookToDOM(book){
