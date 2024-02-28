@@ -105,14 +105,17 @@ function validateForm(title, author, pages){
 
 titleInput.addEventListener('change', () => {
     titleError.style.visibility = "hidden";
+    if(!titleInput.checkValidity()) titleError.style.visibility = "visible";
 })
 
 authorInput.addEventListener('change', () => {
     authorError.style.visibility = "hidden";
+    if(!authorInput.checkValidity()) authorError.style.visibility = "visible";
 })
 
 pagesInput.addEventListener('change', () => {
     pagesError.style.visibility = "hidden";
+    if(!pagesInput.checkValidity()) pagesError.style.visibility = "visible";
 })
 
 addButton.addEventListener("click", (event) => {
